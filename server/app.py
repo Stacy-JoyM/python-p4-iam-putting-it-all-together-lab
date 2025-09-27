@@ -61,7 +61,7 @@ class CheckSession(Resource):
         if not user_id:
             return {'error': 'Unauthorized'}, 401
 
-        user = User.query.get(user_id)
+        user = db.session.get(User, user_id)
 
         if not user:
             return {'error': 'User not found'}, 401
